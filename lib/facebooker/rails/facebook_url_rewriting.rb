@@ -25,7 +25,7 @@ module ::ActionController
     def rewrite_url_with_facebooker(*args)
       options = args.first.is_a?(Hash) ? args.first : args.last
       is_link_to_canvas = link_to_canvas?(@request.request_parameters, options)
-      if is_link_to_canvas && !options.has_key?(:host)
+      if is_link_to_canvas && !options.has_key?(:host) && options[:platform] == 'facebook'
         options[:host] = Facebooker.canvas_server_base
       end 
       options.delete(:canvas)
