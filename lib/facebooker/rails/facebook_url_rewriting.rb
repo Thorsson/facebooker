@@ -29,7 +29,7 @@ module ::ActionController
         options[:host] = Facebooker.canvas_server_base
       end 
       options.delete(:canvas)
-      Facebooker.request_for_canvas(is_link_to_canvas) do
+      Facebooker.request_for_canvas(is_link_to_canvas && options[:platform] == 'facebook') do
         rewrite_url_without_facebooker(*args)
       end
     end
