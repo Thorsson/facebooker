@@ -1,5 +1,5 @@
 module ::ActionController
-  class AbstractRequest
+  class Request
     def request_method_with_facebooker
       if parameters[:fb_sig_request_method]=="GET" and parameters[:_method].blank?
         parameters[:_method]="GET"

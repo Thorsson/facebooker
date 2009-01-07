@@ -1,5 +1,5 @@
 module ::ActionController
-  class AbstractRequest                         
+  class Request
     def relative_url_root
       Facebooker.path_prefix
     end                                         
