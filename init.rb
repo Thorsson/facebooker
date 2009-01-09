@@ -11,7 +11,7 @@ Facebooker.logger = RAILS_DEFAULT_LOGGER if Object.const_defined? :RAILS_DEFAULT
 require 'net/http_multipart_post'
 require 'facebooker/rails/controller'
 require 'facebooker/rails/facebook_url_rewriting'
-require 'facebooker/rails/facebook_session_handling'
+# require 'facebooker/rails/facebook_session_handling'
 require 'facebooker/rails/facebook_asset_path'
 require 'facebooker/rails/facebook_request_fix'
 require 'facebooker/rails/routing'
@@ -45,7 +45,7 @@ end
 # and also in the post body. We want to ignore the query string ones because they are one
 # request out of date
 # We only do thise when there are POST parameters so that IFrame linkage still works
-class ActionController::AbstractRequest
+ActionController::Request.class_eval do
   def query_parameters_with_facebooker
     if request_parameters.blank?
       query_parameters_without_facebooker

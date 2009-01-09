@@ -7,7 +7,7 @@ module ::ActionController
       request_method_without_facebooker
     end
     
-    if new.methods.include?("request_method")
+    if instance_methods.include?("request_method")
       alias_method_chain :request_method, :facebooker 
     end
     
